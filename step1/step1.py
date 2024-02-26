@@ -35,4 +35,4 @@ print("Q3: Sample of 10 unique passwords:", selected_passwords)
 sorted_password_freq = dict(sorted(password_freq.items(), key=lambda item: item[1], reverse=True))
 top_1000_passwords = dict(list(sorted_password_freq.items())[:1000])
 with open(output_file, 'w') as json_file:
-    json.dump(sorted_password_freq, json_file,indent=2)
+    json.dump(top_1000_passwords, json_file,indent=2)
