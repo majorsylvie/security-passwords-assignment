@@ -3,7 +3,7 @@ import json
 from random import sample
 
 file_path = 'rockyou.txt'
-output_file = 'passwords_frequency.json'
+output_file = 'passwords_frequency'
 
 with open(file_path, "r", encoding="utf8", errors="ignore") as file:
     passwords = file.read().splitlines()
@@ -34,5 +34,10 @@ print("Q3: Sample of 10 unique passwords:", selected_passwords)
 
 sorted_password_freq = dict(sorted(password_freq.items(), key=lambda item: item[1], reverse=True))
 top_1000_passwords = dict(list(sorted_password_freq.items())[:1000])
-with open(output_file, 'w') as json_file:
+
+with open('top1000' + output_file + '.json',  'w') as json_file:
     json.dump(top_1000_passwords, json_file,indent=2)
+
+with open(output_file + '.txt', "w") as f:
+    for key in sorted_password_freq.keys():
+        f.write(key + '\n')
